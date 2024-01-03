@@ -9,13 +9,15 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-try {
-  await sequelize.authenticate();
-  console.log('Connection has been established successfully.');
-} catch (error) {
-  console.error('Unable to connect to the database:', error);
+async function TryConnection() {
+  try {
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
 }
-
+  
 const items: Item[] = [];
 
 app.get('/', (req, res) => {
