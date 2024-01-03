@@ -3,7 +3,7 @@ const sequelize = new Sequelize('sqlite::memory:');
 
 class Personne extends Model {}  
 
-Personne.init{
+Personne.init({
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -20,6 +20,7 @@ Personne.init{
     },
     age: {
         type: DataTypes.NUMBER
-      }
-    , { sequelize });
-}
+    }
+},
+    { sequelize }
+);
